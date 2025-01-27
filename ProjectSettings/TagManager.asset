@@ -7,6 +7,9 @@ TagManager:
   - Power-Up
   - Dot
   - Path
+  - Wall
+  - Tiger
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Wall
+  - Player
   - 
   - 
   - 

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class powerUpController : MonoBehaviour
-{ 
+public class powerUpController : MonoBehaviour {
+    public AudioClip collectSound;
     public string type;
     private float rotation;
 
@@ -11,7 +11,6 @@ public class powerUpController : MonoBehaviour
         rotation = 0f;
     }
 
-    // Update is called once per frame
     void Update() {
         if (type == "Speed") transform.rotation = Quaternion.Euler(0f, rotation, 0f);
         else if (type == "Jump") transform.rotation = Quaternion.Euler(-90f, rotation, 0f);
@@ -20,6 +19,7 @@ public class powerUpController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) { 
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);
         Destroy(gameObject, 0f);
     }
 }

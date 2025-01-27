@@ -54,10 +54,10 @@ public class Number : MonoBehaviour {
                 Destroy(obj);
             }
         }
-        Debug.Log(game.coordToTile(Input.mousePosition, game.allTiles.GetLength(1), game.allTiles.GetLength(0), 0));
+        // Debug.Log(game.coordToTile(Input.mousePosition, game.allTiles.GetLength(1), game.allTiles.GetLength(0), 0));
         Vector2Int size = new Vector2Int(game.allTiles.GetLength(1), game.allTiles.GetLength(0));
-        Vector3 startRectCenter = new Vector3(game.tileToCoord(startPos, size.x, size.y).x, game.tileToCoord(startPos, size.x, size.y).y, 0f);
-        Vector3 endRectCenter = new Vector3(game.tileToCoord(endPos, size.x, size.y).x, game.tileToCoord(endPos, size.x, size.y).y, 0f);
+        Vector3 startRectCenter = game.tileToCoord(startPos, size.x, size.y);
+        Vector3 endRectCenter = game.tileToCoord(endPos, size.x, size.y);
         GameObject currentStart = Instantiate(dotPrefab, startRectCenter, Quaternion.Euler(90f, 0f, 0f), transform);
         GameObject currentEnd = Instantiate(dotPrefab, endRectCenter, Quaternion.Euler(90f, 0f, 0f), transform);
         currentStart.transform.localScale = currentStart.transform.localScale * (5f/size.x);
